@@ -16,6 +16,7 @@ end
 
 #Authentication
 gem 'devise'
+gem 'pundit'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
