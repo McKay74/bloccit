@@ -9,4 +9,9 @@ class Post < ActiveRecord::Base
 
   scope :since_yesterday, -> { where( "created_at > '#{Time.now - 2.days.ago}'" )}
 
+  validates :title, length: { minimum: 5 }, presence: true
+  validates :body, length: { minimum: 20 }, presence: true
+  validates :topic, presence: true
+  validates :user, presence: true
+
 end
