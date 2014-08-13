@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     authorize @post
   end
 
+  # POST /posts
   def create
     @topic = Topic.find(params[:topic_id])
     @post = current_user.posts.build(post_params)
@@ -34,6 +35,7 @@ class PostsController < ApplicationController
      authorize @post
   end
 
+  # PUT /posts/nnn
   def update
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
