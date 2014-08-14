@@ -3,11 +3,10 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
 
+  mount_uploader :image, ImageUploader
+
   default_scope { order('created_at DESC') }
-
-  scope :alphabetized, -> { order("title ASC") }
-
-  scope :since_yesterday, -> { where( "created_at > '#{Time.now - 2.days.ago}'" )}
+  
 
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true
