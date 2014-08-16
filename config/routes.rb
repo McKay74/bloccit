@@ -1,4 +1,6 @@
 Bloccit::Application.routes.draw do
+  get 'comments/create'
+
   # get 'topics/index'
 
   # get 'topics/new'
@@ -11,6 +13,7 @@ Bloccit::Application.routes.draw do
     resources :users, only: [:update]
     resources :topics do 
       resources :posts, except: [:index]
+        resources :comment, only: [:create]   #comments checkpoint
     end
 
 
