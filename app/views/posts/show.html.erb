@@ -7,7 +7,16 @@
        submitted <%= time_ago_in_words(@post.created_at) %> ago by
        <%= @post.user.name %>
      </small>
-    <p><%= markdown @post.body %></p>
+    <%= markdown @post.body %>
+    <h2>Add new comment</h2>
+    <%=render partial: "comments/form", locals: {comment: @post.comments.build}%>
+    <h2>Comments</h2>
+    <% @comments.each do |c| %>
+      <%unless c.user.nil?%>
+      <p><%=c.user.name%></p>
+      <p><%=c.body%></p>
+      <% end %>
+    <% end %>
   </div>
   <div class="col-md-4">  
     <% if policy(@post).edit? %>
