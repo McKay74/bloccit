@@ -21,7 +21,6 @@ Bloccit::Application.routes.draw do
       resources :comments, only: [:create, :destroy] 
     end
 
-
   get 'about' => 'welcome#about'
 
   root to: 'welcome#index'
