@@ -1,8 +1,13 @@
 describe Vote do
   describe "validations" do 
+
+    before do
+      v2 = Vote.new( value: -1)
+    end
+
     describe "value validation" do 
-      it "only allows -1 or 1 as values" do
-        expect( value validation ).to eq(true)
+      it "only allows -1 as value" do
+        expect( v2.value? ).to eq(true)
       end
     end
   end
