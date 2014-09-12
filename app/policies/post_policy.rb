@@ -5,7 +5,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.present? && (record.user == user || user.role?(:admin) || user.role(:moderator))
+    user.present? && (record.user == user || user.role?(:admin) || user.role?(:moderator))
   end
 
 end
