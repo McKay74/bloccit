@@ -11,7 +11,7 @@
      </small>
     <%= markdown @post.body %>  
     <h2>Comments</h2>
-    <%= render @comments %>
+    <%= render partial: 'comments/comment', collection: @comments %>
     <h2>Add new comment</h2>
     <%=render partial: "comments/form", locals: {comment: @post.comments.build}%>
   </div>
