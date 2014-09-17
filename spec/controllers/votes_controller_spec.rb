@@ -3,13 +3,12 @@ require 'rails_helper'
 describe VotesController do 
 
   include Devise::TestHelpers
-  include TestFactories
 
   describe '#up_vote' do 
     it "adds an up-vote to the post" do 
       request.env["HTTP_REFERER"] = '/'
-      @user = authenticated_user
-      @post = associated_post
+      @user = FactoryGirl.create(:user)
+      @post = FactoryGirl.create(:post)
       sign_in @user
 
       expect {
@@ -21,8 +20,8 @@ describe VotesController do
   describe '#down_vote' do 
     it "adds an down-vote to the post" do 
       request.env["HTTP_REFERER"] = '/'
-      @user = authenticated_user
-      @post = associated_post
+      @user = FactoryGirl.create(:user)
+      @post = FactoryGirl.create(:post)
       sign_in @user
 
       expect {
